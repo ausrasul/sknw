@@ -118,7 +118,7 @@ def parse_struc(img, nbs, acc, iso, ring, buf_size):
 # use nodes and edges build a networkx graph
 def build_graph(nodes, edges, multi=False, full=True):
     os = np.array([i.mean(axis=0) for i in nodes])
-    if full: os = os.round().astype(np.uint16)
+    if full: os = os.round().astype(np.uint32)
     graph = nx.MultiGraph() if multi else nx.Graph()
     for i in range(len(nodes)):
         graph.add_node(i, pts=nodes[i], o=os[i])
