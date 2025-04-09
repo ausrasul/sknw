@@ -135,7 +135,7 @@ def mark_node(ske):
     mark(buf, nbs)
     return buf
     
-def build_sknw(ske, buf_size=131072, multi=False, iso=True, ring=True, full=True):
+def build_sknw(ske, multi=False, iso=True, ring=True, full=True, buf_size=131072):
     buf = np.pad(ske, (1,1), mode='constant').astype(np.int64)
     nbs = neighbors(buf.shape)
     acc = np.cumprod((1,)+buf.shape[::-1][:-1])[::-1]
